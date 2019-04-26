@@ -1,10 +1,8 @@
-package com.asterisk.nam.demomvpandloadapi.presenter;
+package com.asterisk.nam.demomvpandloadapi;
 
 import com.asterisk.nam.demomvpandloadapi.network.NetworkCallback;
 import com.asterisk.nam.demomvpandloadapi.network.RemoteDataSource;
-import com.asterisk.nam.demomvpandloadapi.contract.LoadContract;
 import com.asterisk.nam.demomvpandloadapi.model.User;
-import com.asterisk.nam.demomvpandloadapi.view.MainActivity;
 
 import java.util.List;
 

@@ -1,6 +1,5 @@
-package com.asterisk.nam.demomvpandloadapi.view;
+package com.asterisk.nam.demomvpandloadapi;
 
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -9,11 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.asterisk.nam.demomvpandloadapi.R;
 import com.asterisk.nam.demomvpandloadapi.adapter.UserAdapter;
-import com.asterisk.nam.demomvpandloadapi.contract.LoadContract;
 import com.asterisk.nam.demomvpandloadapi.model.User;
-import com.asterisk.nam.demomvpandloadapi.presenter.LoadPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements LoadContract.View
     private UserAdapter mUserAdapter;
     private LinearLayoutManager mLinearLayoutManager;
     private boolean mFeelLoading = false;
-    private List<User> mListUser, mSubListUser;
+    private List<User> mListUser;
     private int mLoadMore;
 
     private LoadPresenter mLoadPresenter;
@@ -79,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements LoadContract.View
 
     private void initRecyclerView() {
         mListUser = new ArrayList<>();
-        mUserAdapter = new UserAdapter(this,mListUser);
+        mUserAdapter = new UserAdapter(this, mListUser);
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setAdapter(mUserAdapter);
@@ -109,19 +105,8 @@ public class MainActivity extends AppCompatActivity implements LoadContract.View
     }
 
     private void loadMore() {
-
         mListUser.add(null);
         mUserAdapter.notifyItemInserted(mListUser.size() - 1);
-
-        /*
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadMoreBody();
-            }
-        }, 3000);
-        */
         loadMoreBody();
     }
 
@@ -137,35 +122,6 @@ public class MainActivity extends AppCompatActivity implements LoadContract.View
         }
         mUserAdapter.notifyDataSetChanged();
         mFeelLoading = false;
-    }
-
-    private void loadMoreFake() {
-        //mListUser.add(null);
-        //mUserAdapter.notifyItemInserted(mListUser.size() - 1);
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //mListUser.remove(mListUser.size() - 1);
-                int scrollPosition = mListUser.size();
-                //mUserAdapter.notifyItemRemoved(scrollPosition);
-                int currentSize = scrollPosition;
-                int nextLimit = currentSize + 10;
-                while (currentSize - 1 < nextLimit) {
-                    mListUser.add(new User(1, "mojombo", "https://avatars0.githubusercontent.com/u/1?v=4"));
-                    mListUser.add(new User(2, "defunkt", "https://avatars0.githubusercontent.com/u/2?v=4"));
-                    currentSize++;
-                }
-                mSubListUser = new ArrayList<>();
-                mSubListUser.addAll(mListUser);
-                mListUser.clear();
-                mListUser.addAll(mSubListUser);
-                mUserAdapter.notifyDataSetChanged();
-                mRecyclerView.scrollToPosition(mListUser.size() - 1);
-                mFeelLoading = false;
-            }
-        }, 5000);
     }
 
     @Override

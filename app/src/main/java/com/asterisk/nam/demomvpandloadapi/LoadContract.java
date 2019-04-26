@@ -1,4 +1,4 @@
-package com.asterisk.nam.demomvpandloadapi.contract;
+package com.asterisk.nam.demomvpandloadapi;
 
 import android.content.Context;
 

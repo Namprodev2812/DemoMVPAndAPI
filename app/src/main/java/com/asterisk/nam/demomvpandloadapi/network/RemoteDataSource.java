@@ -3,7 +3,7 @@ package com.asterisk.nam.demomvpandloadapi.network;
 import android.os.AsyncTask;
 
 import com.asterisk.nam.demomvpandloadapi.model.User;
-import com.asterisk.nam.demomvpandloadapi.view.MainActivity;
+import com.asterisk.nam.demomvpandloadapi.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

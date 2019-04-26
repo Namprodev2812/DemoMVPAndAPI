@@ -5,29 +5,33 @@ public class User {
     private String mName;
     private String mAvatar;
 
-    public User() {
-
+    public User(int id, String name, String avatar) {
+        mId = id;
+        mName = name;
+        mAvatar = avatar;
     }
 
-    public User(int mId, String mName, String mAvatar) {
-        this.mId = mId;
-        this.mName = mName;
-        this.mAvatar = mAvatar;
-    }
-
-    public int getmId() {
+    public int getId() {
         return mId;
     }
 
-    public String getmName() {
+    public void setId(int id) {
+        mId = id;
+    }
+
+    public String getName() {
         return mName;
     }
 
-    public String getFullData() {
-        return mId + mName;
+    public void setName(String name) {
+        mName = name;
     }
 
-    public String getmAvatar() {
+    public String getAvatar() {
         return mAvatar;
+    }
+
+    public void setAvatar(String avatar) {
+        mAvatar = avatar;
     }
 }
