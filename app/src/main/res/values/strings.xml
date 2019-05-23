@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">DemoMVPAndLoadAPI</string>
+    <string name="app_name">Gallery</string>
+    <string name="my_data">Mydata</string>
+    <string name="my_des">is error</string>
+    <string name="my_title_text">Body Notification</string>
+    <string name="my_bigtext">Một notification là một thông điệp mà Android hiển thị bên ngoài giao diện ứng dụng của bạn để cung cấp cho người dùng lời nhắc, tin nhắn, hay bất kỳ thông tin gì từ ứng dụng của bạn. Người dùng có thể nhấn vào notification để mở ứng dụng, hoặc thực hiện một hành động trực tiếp trên notification như gửi tin nhắn</string>
+    <string name="em_se_la_co_dau">Em sẽ là cô dâu</string>
+    <string name="auth_eslcd">Minh Vương M4U,Huy Cung</string>
 </resources>
