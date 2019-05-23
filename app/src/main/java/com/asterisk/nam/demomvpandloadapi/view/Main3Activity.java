@@ -46,6 +46,7 @@ public class Main3Activity extends AppCompatActivity {
         private Activity mActivity;
         String mStringFileName;
         double mDoubleFileSize;
+
         private PowerManager.WakeLock mWakeLock;
 
         public DownloadTask(Activity activity) {
@@ -54,7 +55,8 @@ public class Main3Activity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... sUrl) {
-            /*
+
+            Log.e("doInBackground", "" + sUrl[0]);
             InputStream input = null;
             OutputStream output = null;
             HttpURLConnection connection = null;
@@ -76,7 +78,9 @@ public class Main3Activity extends AppCompatActivity {
 
                 // download the file
                 input = connection.getInputStream();
-                output = new FileOutputStream("/Download/file_name.extension");
+               // output = new FileOutputStream("/Downloads/file_name.extension");
+                output = new FileOutputStream("/nhac.mp3");
+                //output = new FileOutputStream("/sdcard/file_name.extension");
 
                 byte data[] = new byte[4096];
                 long total = 0;
@@ -94,22 +98,24 @@ public class Main3Activity extends AppCompatActivity {
                     output.write(data, 0, count);
                 }
             } catch (Exception e) {
+                Log.e("doInBackground",""+e.getMessage());
                 return e.toString();
             } finally {
                 try {
                     if (output != null)
                         output.close();
                     if (input != null)
-                        input.close();ry {
-                } catch (IOException ignored) {
+                        input.close();
+
+                } catch (IOException e) {
                 }
 
                 if (connection != null)
                     connection.disconnect();
-            }
-            return null;
-            */
 
+            }
+
+            return null;
             /*
             String path = sUrl[0];
             int file_length = 0;
@@ -150,7 +156,7 @@ public class Main3Activity extends AppCompatActivity {
             }
             return "Download complete ...";
             */
-
+/*
             mStringFileName = sUrl[0].substring(sUrl[0].lastIndexOf("/")+ 1);
 
             try{
@@ -232,13 +238,13 @@ public class Main3Activity extends AppCompatActivity {
             //mWakeLock.acquire();
 
         }
-
+*/
+        }
         @Override
         protected void onProgressUpdate(Integer... progress) {
             Log.e("progressdown",""+progress[0]);
-
         }
-
+/*
         @Override
         protected void onPostExecute(String result) {
             //mWakeLock.release();
@@ -256,5 +262,5 @@ public class Main3Activity extends AppCompatActivity {
 
 
         }
+
     }
-}
